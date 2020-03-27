@@ -1,0 +1,743 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstataic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="stylesheet" href="css/my-theme.min.css">
+
+  <script src="components/loader.js"></script>
+
+  <script src="js/ncmb-latest.min.js"></script>
+  
+  <script src="js/app.js"></script>
+  <script src="js/tag.js"></script>
+  <script src="js/jquery.validate.js"></script>
+  <script src="monaca-jquery-mobile/custom-scripting.js"></script>
+  <script src="monaca-jquery-mobile/jquery-mobile.js"></script>
+  <script src="js/cssua.min.js"></script>
+
+  <script language="JavaScript">
+  $(document).bind("mobileinit", function(){
+  // 　　$.mobile.pushStateEnabled = false;
+  });
+</script>
+</head>
+
+<body>
+
+
+
+
+
+
+<!------------------ ①ユーザー認証ページ ------------------------>
+<div data-role="page" id="LoginPage" class="ui-login-content">
+  <header data-role="header" data-position="fixed">
+  </header>
+
+    <section  class="login-content">
+      <div id="logo_title">
+        <img src="image/logo.png"  width="200px" height="100px">
+       <!-- <h7 class="title" style="color:#FFF;">
+         <br>部室にある電子部品を<br>管理・整頓・レンタル
+         <br>するためのアプリ<br>
+       </h7> -->
+      </div>
+
+      <!-- ログインページ -->
+      <div id="login">
+        <a href="#popupLogInInbox" id="login-position" data-rel="popup" data-position-to="window" class="square_btn_login" data-role="button" data-inline="false"  data-transition="pop">Log In</a>
+      </div>
+
+　   <!-- 登録ページ　 -->
+      <div id="signup">
+        <a href="#popupSignUpInbox" 
+        class="square_btn_signup" id="signup-position" data-rel="popup" data-position-to="window" data-role="button" data-inline="false" data-transition="pop">
+        Sign up</a>
+      </div>
+
+
+    <div class="bottom-gap" style="height:50px;"></div>
+    </section>
+
+    <footer data-role="footer" data-position="fixed" data-fullscreen="true">
+    </footer>
+
+    <div class="login-content">
+    <div data-role="popup" id="popupLogInInbox" data-theme="a" class="ui-corner-all">
+    <form>
+      <div style="padding:20px 20px;">
+        <h3>Log In</h3>
+        <h4>Username</h4>
+        <div data-role="fieldcontain">
+        <label for="un" class="ui-hidden-accessible">User Name:</label>
+        <input type="text" id="login_username" placeholder="username">
+        </div>
+        <div class="name_error"></div>
+
+        <h4>Password</h4>
+        <div data-role="fieldcontain">
+        <label for="un" class="ui-hidden-accessible">Password:</label>
+        <input  type="password" id="login_password" placeholder="password">
+        </div>
+        <div class="password_error"></div>
+        
+      　　 <a href="#" id="LoginBtn" data-role="button" data-inline="false" data-theme="c">Log in</a>
+        </div>
+      </form>
+    </div>
+
+    <div data-role="popup" id="popupSignUpInbox" data-theme="a" class="ui-corner-all">
+          <form>
+            <div style="padding:40px 40px;">
+              <h3>Sign Up</h3>
+              <h4>Username</h4>
+              <div data-role="fieldcontain">
+              <label for="un" class="ui-hidden-accessible">User Name:</label>
+              <input type="text" id="reg_username" placeholder="username">
+              </div>
+              <div class="name_error"></div>
+
+              <h4>Password</h4>
+              <div data-role="fieldcontain">
+              <label for="un" class="ui-hidden-accessible">Password:</label>
+              <input  type="password" id="reg_password" placeholder="password">
+              </div>
+              <div class="password_error"></div>
+
+              <h4>Password Confirm</h4>
+              <div data-role="fieldcontain">
+              <label for="un" class="ui-hidden-accessible">Password confirm:</label>
+              <input  type="password" id="reg_password_confirm" placeholder="password confirm">
+              </div>
+              <div class="password_error"></div>
+
+              <a href="#" id="RegisterBtn" data-role="button" data-inline="false" data-theme="c">Sign up</a>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <!------------------ ②部品登録ページ ------------------>
+<div data-role="page" page="register.page" id="DetailPage">
+ <!-- ******* ヘッダー ******* -->
+  <header data-role="header" data-position="fixed" data-tap-toggle="false">
+    <h1>Register</h1>
+  <a href="#" class="ui-nodisc-icon ui-btn-right" data-icon="search"  data-role="button" data-theme="a" onclick="openDlog();">検索</a>
+  <a href="#" class="ui-nodisc-icon ui-btn-left" data-rel="back" data-icon="back" data-role="button" data-transition="slidedown" data-theme="a">戻る</a>
+  </header>
+
+  <section data-role="content">
+  <div id="text_form">
+    <div class="ui-field-contain" data-role="fieldcontain">
+    <form>
+      <label>部品名:</label>
+      <input type="text" id="parts_register_name"  placeholder="Parts Name">
+    </form>
+    </div>
+  </div>
+
+
+  <div data-role="fieldcontain">
+    <label>個数:</label>
+    <form class="form" name="parts_register_number">
+    <select id="parts_register_number"　id="select-choice-a" name="parts_register_number" data-native-menu="false">
+    </select>
+    </form>
+  </div>
+
+  <div data-role="fieldcontain">
+    <label>Firstタグ:</label>
+    <form class="form" name="parts_register_first_tag">
+      <select name="parts_register_first_tag" id="parts_register_first_tag" data-native-menu="false">
+      </select>
+    </form>
+  </div>
+
+  <div data-role="fieldcontain">
+    <label>Secondタグ:</label>
+    <form class="form" name="parts_register_second_tag">
+      <select name="parts_register_second_tag" id="parts_register_second_tag" data-native-menu="false">
+      </select>
+  </form>
+  </div>
+
+  <!-- <div class="ui-field-contain"data-role="fieldcontain">
+    <form>
+      <label>Minimumタグ:</label>
+      <input type="text" id="parts_register_tag" placeholder="TagA,TagB,TagC(Largest 3)">
+    </form>
+  </div> -->
+
+  <p class="form-name">画像:</p>
+  <div class="form" align="center">
+      <img class="image-form" id="photo" width="200px" height="200px">
+  <input type="button" id="shoot-button" data-icon="video" onclick="shoot(this)" name="register" value="写真を撮影する"> 
+
+  <input type="file" id="target" accept="image/*">
+  </div>
+  <div class="bottom-gap" style="height:20px;"></div>
+      
+　　<a href="#" id="RegisterPartsBtn" data-role="button" data-inline="false" data-theme="a">登録</a>
+  </div>
+  <div class="bottom-gap" style="height:50px;"></div>
+</section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ③部品更新画面 -->
+<div data-role="page" id="UpdatePartsPage">
+  <!-- ******* ヘッダー ******* -->
+<header data-role="header" data-position="fixed" data-tap-toggle="false">
+  <h1>Update</h1>
+  <input type="button" 
+  class="ui-btn-right" data-icon="search" data-role="button" data-transition="slidedown" value="検索" data-theme="a" onclick="openDlog();">
+  <a href="#" class="ui-nodisc-icon ui-btn-left" data-rel="back" data-icon="back" data-role="button" data-transition="slidedown" data-theme="a" >戻る</a>
+  
+</header>
+    
+
+
+
+    
+    <section data-role="content">
+    <div id="detailArea"　class="card card_shadow">
+      <div class="card-body">
+
+      <div data-role="fieldcontain">
+        <div id="UpdateName"></div>
+      </div>
+ 
+
+      <div data-role="fieldcontain">
+        <label>個数:</label>
+        <form class="form" name="parts_update_number">
+        <select id="select_number_update" name="parts_update_number"  id="select-choice-a" data-native-menu="false">
+        </select>
+        </form>
+      </div>
+
+      <div data-role="fieldcontain">
+        <label>Firstタグ:</label>
+        <form class="form" name="parts_update_first_tag">
+          <select id="parts_update_first_tag" name="parts_update_first_tag"　data-native-menu="false">
+          </select>
+        </form>
+      </div>
+
+      <div data-role="fieldcontain">
+        <label>Secondタグ:</label>
+        <form class="form" name="parts_update_second_tag">
+          <select id="parts_update_second_tag" name="parts_update_second_tag" data-native-menu="false">
+          </select>
+        </form>
+      </div>
+
+  <div data-role="fieldcontain">
+     <div id="ContentUpdate"></div>
+    </div>
+
+    <div class="form-block">
+      <p class="form-name">画像</p>
+      <div class="form" align="center">
+         <img class="image-form" id="updatePhoto"　width="200px" height="200px">
+      <input type="button" id="shoot-button" onclick="shoot(this)" data-icon="camera"　name="update" value="写真を撮影する"> 
+      </div>
+    </div>
+      
+    <div id="UpdateBox"></div>
+  </div>
+  <div class="bottom-gap" style="height:50px;"></div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------------------ ④メインページ ------------------>
+<!-- 現在のレンタル状況などの画面 -->
+<div data-role="page" page="main.html" id="MainPage">
+ <!-- ******* ヘッダー ******* -->
+<header data-role="header" data-position="fixed" data-tap-toggle="false">
+  <h1>Rental List</h1>
+  <a href="#" class="ui-nodisc-icon  ui-btn-right" data-icon="search"  data-role="button" data-theme="a" onclick="openDlog();">検索</a>
+  <a href="#menu-left" class="ui-btn-left ui-nodisc-icon"  data-role="button" data-transition="slidedown" data-icon="info" data-theme="a">オプション
+  </a>
+  
+  <div class="display_frame">
+    <div class="scroll_frame">
+        <div class="inner_frame">
+      </div> 
+    </div>
+  </div>
+</header>
+
+
+<div data-role="panel" class="ui-mainbar-content" id="menu-left" data-theme="a" data-display="overlay"　 data-animate="false" >
+  <div data-role="header">
+    <img src="image/logo.png" width="150px" height="60px">
+  </div>
+  <div>
+  <ul data-role="listview">
+    <li><a href="#" data-ajax="false" data-rel="close"　data-role="button" data-icon="user" onclick="javascript:onShowFirstTagsBtn();showRentalData();">
+    貸出リスト</a></li>
+    <!-- <li><a href="#" disabled data-ajax="false"　onclick="showRentalList();"　data-role="button"　data-rel="close" data-icon="user">延滞者リスト</a></li> -->
+    <li><a href="#" data-ajax="false" onclick="onUpdateUserData();" data-rel="close"　data-role="button"　data-icon="user">ユーザー情報の変更</a></li>
+    <li><a href="#" data-ajax="false" data-rel="close"　data-role="button"  data-icon="grid" onclick="openLogoutDlog();">ログアウト</a></li>
+    <li><a href="#" disabled  data-ajax="false" data-rel="close"　data-role="button"  data-icon="grid" onclick="openHelp();">このアプリについて</a></li>
+  </ul>
+  <p class="close-btn"><a href="#" data-rel="close" data-role="button" data-theme="c" data-icon="delete">Close</a></p>
+  </div>
+</div>
+
+<!-- ******* ******* ******* -->
+    
+
+    <section data-role="content" style="min-height: 600px;">
+      <div id="bottom-gap" style="height:20px;"></div>
+      <!-- レンタル情報はありません　→　追加でレンタルの仕方を教えてくれる -->
+      <div id="rental_situation_user"></div>
+      <div id="rental_situation_nothing"></div>
+      <!-- レンタル情報を通知 -->
+      <div id="rental_situation">
+        <div id="rental_situation_data" class="wrapper">
+          <!-- 今 -->
+        </div>
+      </div>
+      <div id="bottom-gap" style="height:50px;"></div>
+    </section>
+
+  <div id="reload_button"></div>
+
+<!-- フッター -->
+<footer data-role="footer" data-position="fixed" data-tap-toggle="false">
+  <div id="toRegisterPageBtn">
+      <a href="#" data-ajax="false" class="square_btn_rental" style="border-bottom: solid 4px yellow;" onclick="onShowRegisterParts();"><p style="text-align:center;color:white;">登録する！</p></a>
+  </div>
+</footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---------- ⑤部品一覧ページ ------------>
+<div data-role="page" id="ListUpPage">
+
+
+<!-- ******* ヘッダー ******* -->
+<header data-role="header" data-position="fixed" data-tap-toggle="false">
+
+  <h1 id="header-title"></h1>
+  <a href="#" class="ui-nodisc-icon  ui-btn-right" data-icon="search"  data-role="button" data-theme="a" onclick="openDlog();">検索</a>
+  <a href="#menu-left" class="ui-btn-left ui-nodisc-icon"  data-role="button" data-transition="slidedown" data-icon="info" data-theme="a">オプション
+  </a>
+
+
+  
+  <div class="display_frame">
+    <div class="scroll_frame">
+        <div class="inner_frame">
+ 
+      </div> 
+    </div>
+  </div>
+</header>
+
+<div data-role="panel" class="ui-mainbar-content" id="menu-left" data-theme="a" data-display="overlay"　 data-animate="false" >
+  <div data-role="header">
+    <img src="image/logo.png" width="150px" height="60px">
+  </div>
+  <div>
+  <ul data-role="listview">
+    <li><a href="#" data-ajax="false" data-rel="close"　data-role="button" data-icon="user" onclick="javascript:onShowFirstTagsBtn();showRentalData();">
+    貸出リスト</a></li>
+    <!-- <li><a href="#" data-ajax="false"　onclick="showRentalList();"　data-role="button"　data-rel="close" data-icon="user">延滞者リスト</a></li> -->
+    <li><a href="#" data-ajax="false" onclick="onUpdateUserData();" data-rel="close"　data-role="button"　data-icon="user">ユーザー情報の変更</a></li>
+    <li><a href="#" data-ajax="false" data-rel="close"　data-role="button"  data-icon="grid" onclick="openLogoutDlog();">ログアウト</a></li>
+    <li><a href="#" disabled  data-ajax="false" data-rel="close"　data-role="button"  data-icon="grid" onclick="openHelp();">このアプリについて</a></li>
+  </ul>
+  <p class="close-btn"><a href="#" data-rel="close" data-role="button" data-theme="c" data-icon="delete">Close</a></p>
+  </div>
+</div>
+<!-- ******* ******* ******* -->
+  
+
+    <section data-role="content" style="min-height: 600px;">
+
+      <div class="bottom-gap" style="height:20px;"></div>
+      <section id="searchResult"></section>
+      
+      <div id="partscard" class="wrapper"></div>
+  
+      <div id="reload"></div>
+      <div class="bottom-gap" style="height:50px;"></div>
+    </section>
+
+<!-- フッター -->
+<footer data-role="footer" data-position="fixed" data-tap-toggle="false">
+  <div id="toRegisterPageBtn">
+      <a href="#" data-ajax="false" class="square_btn_rental" style="border-bottom: solid 4px yellow;" onclick="onShowRegisterParts();"><p style="text-align:center;color:white;">登録する！</p></a>
+  </div>
+</footer>
+</div>
+
+<!-- ⑧部品詳細・貸し出しページ -->
+<div data-role="page" id="DetailPartsPage">
+ <!-- ******* ヘッダー ******* -->
+<header data-role="header" data-position="fixed" data-tap-toggle="false">
+  <h1>Show</h1>
+  <a href="#" class="ui-nodisc-icon ui-btn-right" data-icon="search"  data-role="button" data-theme="a" onclick="openDlog();">検索</a>
+  <a href="#" data-rel="back" class="ui-nodisc-icon ui-btn-left"  data-icon="back"  data-role="button" data-transition="slidedown" data-theme="a" >戻る</a>
+</header>
+    
+    
+<section data-role="content" style="min-height: 600px;">
+  <div class="parts-body">
+    <div id="partsDetailCard"></div>
+
+    <div id="history"></div>
+    
+    <div class="bottom-gap" style="height:30px;"></div>
+  </div>
+
+  </section>
+
+<!-- フッター -->
+<footer data-role="footer" data-position="fixed" data-tap-toggle="false"> 
+  <div id="toRentalPageBtn"></div>
+</footer>
+</div>
+
+
+<!-- 12 返却リスト -->
+<div data-role="page" id="CheckRentalPage">
+ <!-- ******* ヘッダー ******* -->
+<header data-role="header" data-position="fixed" data-tap-toggle="false">
+  <h1>Rental User</h1>
+  <a href="#" class="ui-nodisc-icon  ui-btn-right" data-icon="search"  data-role="button" data-theme="a" onclick="openDlog();">検索</a>
+  <a href="#menu-left" class="ui-btn-left ui-icon-info ui-nodisc-icon"  data-role="button" data-transition="slidedown" data-theme="a">メイン
+  </a>
+</header>
+    
+<!-- ******* ******* ******* -->
+    
+      <section data-role="content" style="min-height: 600px;">
+      <div id="rentalCheckList"></div>
+      <div class="bottom-gap" style="height:50px;"></div>
+      </section>
+</div>
+
+
+
+
+
+
+<!-- 13 ユーザー更新ページ -->
+<div data-role="page" id="UpdateUserPage">
+ <!-- ******* ヘッダー ******* -->
+<header data-role="header" data-position="fixed" data-tap-toggle="false">
+  <h1>User Update</h1>
+   <a href="#" class="ui-nodisc-icon  ui-btn-right" data-icon="search"  data-role="button" data-theme="a" onclick="openDlog();">検索</a>
+  <a href="#menu-left" class="ui-btn-left  ui-nodisc-icon"  data-icon="info" data-role="button" data-transition="slidedown" data-theme="a">メイン
+  </a>
+</header>
+
+<div data-role="panel" class="ui-mainbar-content" id="menu-left" data-theme="a" data-display="overlay"　 data-animate="false" >
+  <div data-role="header">
+    <img src="image/logo.png" width="150px" height="60px">
+  </div>
+  <div>
+  <ul data-role="listview">
+    <li><a href="#" data-ajax="false" data-rel="close"　data-role="button" data-icon="user" onclick="javascript:onShowFirstTagsBtn();showRentalData();">
+    貸出リスト</a></li>
+    <!-- <li><a href="#" data-ajax="false"　onclick="showRentalList();"　data-role="button"　data-rel="close" data-icon="user">延滞者リスト</a></li> -->
+    <li><a href="#" data-ajax="false" onclick="onUpdateUserData();" data-rel="close"　data-role="button"　data-icon="user">ユーザー情報の変更</a></li>
+    <li><a href="#" data-ajax="false" data-rel="close"　data-role="button"  data-icon="grid" onclick="openLogoutDlog();">ログアウト</a></li>
+    <li><a href="#" disabled  data-ajax="false" data-rel="close"　data-role="button"  data-icon="grid" onclick="openHelp();">このアプリについて</a></li>
+  </ul>
+  <p class="close-btn"><a href="#" data-rel="close" data-role="button" data-theme="c" data-icon="delete">Close</a></p>
+  </div>
+</div>
+ <!-- ******* *************** ******* -->
+    
+<!-- ユーザー更新ページ　 -->
+<div data-role="popup" id="popupKeyWordInbox" data-theme="a" class="ui-corner-all">
+  <form>
+    <div style="padding:60px 60px;">
+      <h4>Keyword</h4>
+      <div data-role="fieldcontain">
+        <div data-role="fieldcontain">
+        <label for="un" class="ui-hidden-accessible">Keyword:</label>
+        <input type="text" class="keyword_explore" name="mytext" placeholder="Keyword or Tag">
+        </div>
+      </div>
+      <a href="#"  onclick="onExplorePartsBtn();" id="ExplorePartsBtn" data-role="button" data-inline="false" data-theme="b">Send</a>
+    </div>
+  </form>
+</div>
+<!-- ******* ******* ******* -->
+    
+
+<!-- ******* content ******* -->
+<section data-role="content">
+        <div style-"text-align:center;"><h3>ユーザー情報の更新</h3></div>
+　　　　　<form>
+          <div id="text_form">
+            <div class="ui-field-contain" data-role="fieldcontain">
+            <form>
+              <label>ユーザー名:</label>
+            　　<div id="update-user"></div>
+            </form>
+            </div>
+            <div class="name_error"></div>
+          </div>
+
+          <div id="text_form">
+            <div class="ui-field-contain" data-role="fieldcontain">
+            <form>
+              <label>新しいパスワード:</label>
+              <input  type="password" id="new_password" placeholder="password">
+            </form>
+            </div>
+            <div class="new_password_error"></div>
+          </div>
+
+          <div id="text_form">
+            <div class="ui-field-contain" data-role="fieldcontain">
+            <form>
+              <label>新しいパスワード(確認用):</label>
+              <input  type="password" id="new_password_confirm" placeholder="password confirm">
+            </form>
+            </div>
+            <div class="new_password_error"></div>
+          </div>
+
+          <div class="bottom-gap" style="height:30px;"></div>
+
+          <div id="text_form">
+            <div class="ui-field-contain" data-role="fieldcontain">
+            <form>
+              <label>現在のパスワード:</label>
+              <input  type="password" id="check_password" placeholder="password">
+            </form>
+            </div>
+            <div class="check_password_error"></div>
+          </div>
+
+          <div id="update-user-btn">
+            <a href="#" id="updateUserBtn" data-role="button" data-inline="false" data-theme="a">更新</a>
+          </div>
+      </form>
+      <div class="bottom-gap" style="height:50px;"></div>
+  </section>
+</div>
+
+
+<!-- ヘルプ -->
+<div data-role="dialog" id="popupHelp" class="ui-corner-all">
+  <div data-role="header">
+    <h2>Rele</h2>
+  </div>
+  <div data-role="content">
+    <div class="help">
+      <h5>このアプリについて</h5>
+      <img class="image_help" src="image/rale.png" width="50px" height="50px">
+      <p>このアプリは電子部品の利用促進を目的としています。電子部品の円滑な整理・レンタルを行うことに
+        特化したアプリです。
+    </div>
+    <div class="bottom-gap" style="height:30px;"></div>
+    <div class="help">
+      <h5>① 部品を検索してみよう</h5>
+      <img class="image_help" src="image/main.jpg" width="200px" height="350px">
+      <p>電子部品をカテゴリ別に検索することにより、より効率的な検索を行うことができます。
+         電子部品の整理整頓を行うことによって、部品名・カテゴリと実物の一致や今まで触れたことのない
+         電子部品との出会いが待っています。
+      </P>
+    </div>
+    <br>
+    <div class="help">
+      <h5>② 部品の情報を閲覧しよう</h5>
+      <img class="image_help" src="image/show.jpg" width="200px" height="350px">
+      <p>部品が現在、部室に何個あるのか、誰がレンタルしているのかを閲覧することができます。
+      </P>
+    </div>
+    <br>
+    <div class="help">
+      <h5>③ 部品の情報を追記してみよう</h5>
+      <img class="image_help" src="image/update.jpg" width="200px" height="350px">
+      <p>部品情報にデータをさらに記述することができる。「個数」の欄では、新しく部品を調達した時や
+        部品が消耗した時などに変更を加えることができます。また部品を予約したい場合や部品に関するお知らせをしたい場合に、「Content」の欄にて掲示しておくことができます。
+      </P>
+    </div>
+    <br>
+    <div class="help">
+      <h5>④ 部品をレンタルしてみよう</h5>
+      <img class="image_help" src="image/rental.jpg" width="200px" height="350px">
+      <p>部品をレンタルすることにより、積極的に部品を使うことができます。また部品の数の把握を行うには、レンタル機能を
+        用い、システム的な管理を行う必要性があります。レンタル期限は２週間で、期限を過ぎると貸し出しを制限される場合がありますので注意が必要です。
+      </P>
+    </div>
+    <div class="help">
+      <h5>⑤ 部品を返却してみよう</h5>
+      <img class="image_help" src="image/return.jpg" width="200px" height="350px">
+      <p>貸出リストの現時点でレンタルしている部品をタップすると、返却ページへ移動することができます。
+      </P>
+    </div>
+    
+    <div class="help">
+      <h5>みんなも「Rele」を楽しもう！</h5>
+    </div>
+  </div>
+</div>
+
+<!-- ログアウト -->
+<div data-role="dialog" id="popupLogout" class="ui-corner-all">
+  <div data-role="header">
+    <h2>ログアウト</h2>
+  </div>
+  <div data-role="content">
+  <form>
+    <div style="padding:20px 20px;">
+      <h4>ログアウトしますか</h4>
+      <a href="#" data-role="button" onclick="onLogoutBtn();" data-inline="false" data-theme="a">はい</a>
+      <a href="#MainPage" data-role="button" data-transition="slidedown" data-theme="a">いいえ</a>
+    </div>
+  </form>
+  </div>
+</div>
+
+
+<!-- 検索ページ　 -->
+<div data-role="dialog" id="popupKeyWord" class="ui-corner-all">
+  <div data-role="header">
+    <h2>検索</h2>
+  </div><div data-role="content">
+  <form>
+    <div style="padding:10px 10px;">
+      <h4>キーワード・タグ検索</h4>
+      <div data-role="fieldcontain">
+        <label for="un" class="ui-hidden-accessible">Keyword:</label>
+        <input type="text" id="keyword_explore_form" name="mytext" placeholder="Keyword or Tag">
+        </div>
+      <a href="#"  id="ExplorePartsBtn" onclick="onExplorePartsBtn();" data-role="button" data-inline="false" data-theme="a">Send</a>
+    </div>
+    
+
+    
+  </form>
+  </div>
+</div>
+
+<!-- レンタル履歴表示ページ -->
+<div data-role="dialog" id="popupHistoryRental" class="ui-corner-all">
+  <div data-role="header">
+    <h2>履歴</h2>
+  </div>
+  <div data-role="content">
+   <div id="history">
+   </div>
+  </div>
+</div>
+
+<!-- レンタル返却ページ -->
+<div data-role="dialog" id="popupReturn" class="ui-corner-all">
+  <div data-role="header">
+    <h2>返却</h2>
+  </div>
+  <div data-role="content">
+  <form>
+    <div style="padding:10px 10px;">
+      <h4>レンタル返却</h4>
+      <p>期限内に返却できましたか？</p>
+      <h6>返却個数を選択してください。</h6>
+
+    　<!-- レンタル返却の個数を入力 -->
+        <select id="return_select_box" name="return_register_number">
+          <label>返却個数:</label>
+          <option value="">返却個数を選んでください...</option>
+        </select>
+
+      <div id="onReturnBtn"></div>
+    </div>
+  </form>
+  </div>
+</div>
+
+<!-- レンタル登録ページ -->
+<div data-role="dialog" id="popupRental" class="ui-corner-all">
+  <div data-role="header">
+    <h2>レンタル確認</h2>
+  </div>
+  <div data-role="content">
+    <div style="padding:10px 10px;">
+      <h4>レンタル確認</h4>
+          <!-- レンタルする部品のIDが出力 -->
+
+          <div id="rental_parts_title">
+            <p>レンタル期間は約1週間です。</p>
+            <h6>レンタル数を登録してください。</h6>
+          </div>
+
+　　　　　　<!-- レンタル対象の個数を入力 -->
+            
+          <form>
+            <select id="rental_select_box"　name="rental_register_number"　id="select-choice-a" data-native-menu="false">
+              <label>レンタル数:</label>
+              <option value="">レンタル数を選んでください...</option>
+            </select>
+            
+
+            <!-- レンタルする部品のIDを保持した登録ボタンが発生 -->
+            <div id="rental_btn"></div>
+          </form>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

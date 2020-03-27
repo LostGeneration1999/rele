@@ -1,0 +1,476 @@
+/* set padding for iOS7 status bar */
+.ua-ios-7 .ui-page, .ua-ios-8, .ui-page {
+    padding-top: 63px !important;
+}
+
+.ua-ios-7 .ui-header, .ua-ios-8 .ui-header {
+    top: 60px;
+}
+
+.square_btn_login{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #222222;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #FFFF22;
+    border-radius: 3px;
+}
+
+.square_btn_signup{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #222222;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #FFa500;
+    border-radius: 3px;
+}
+
+.square_btn_rental{
+    display: inline-block;
+    width:100%;
+    padding: 20px 0px;
+    text-decoration: none;
+    background: #222222;/*ボタン色*/
+    color: #FFF;
+    border-radius: 3px;
+}
+
+.image-button{
+  position: absolute;
+  left:10px;
+  top:10px;
+}
+
+#login{
+  position: absolute;
+  left:20%;
+  top:155%;
+}
+
+#signup{
+  position: absolute;
+  left:90%;
+  top:155%;
+}
+
+#button-in-card-left{
+  position: absolute;
+  width: 100px;
+}
+
+#button-in-card-right{
+  position: absolute;
+  width: 100px;
+}
+
+
+
+.image-form{
+  background:rgba(0,0,0,0.6);
+  padding:0px;
+  text-align:center;
+  color:#FFFFFF;
+}
+
+.card_shadow {
+  box-shadow: 0 0 8px gray;
+}
+
+.register-form-name{
+  text-align:center;
+  color:#003399;
+}
+
+.register-form{
+ padding:20px;
+
+}
+.form{
+  margin-left:auto;
+  width: 100%;
+}
+.form-name{
+  margin-right:auto;
+  width:100%;
+}
+
+button {
+    width: auto;
+    padding:0;
+    margin:0;
+    background:none;
+    border:0;
+    font-size:0;
+    line-height:0;
+    overflow:visible;
+    cursor:pointer;
+}
+
+button img {
+  display: block;
+}
+
+.parts-body{
+  background:#f8f8f8;
+}
+
+.card-image h1, 
+.card-image h2{
+  position:absolute;
+  bottom:0px;
+  width:100%;
+  color:white;
+  text-align:left;
+  background:rgba(0,0,0,1);
+  margin:0px;
+  padding:10px;
+  border:none;
+}
+
+.card-image h3,
+.card-image h7,
+.card-image p{
+    position:absolute;
+    bottom:0px;
+    width: 90%;
+    text-align:left;
+    color:white;
+    background:rgba(0,0,0,0.8);
+    margin:0px;
+    padding:10px;
+    border:none;
+}
+
+form label.error{
+  color:red;
+  width:100%;
+  display:inline-block;
+}
+
+.ui-input-text.error{
+  padding-left:18px;
+  background-image: inherit;
+  background-position: inherit;
+  background-color: rgba(255, 0, 0, 0.4);
+}
+
+.box{
+  position:absolute;
+  height:100px;
+}
+
+.bottom-gap{
+  height:50px;
+}
+
+.return-out-card{
+background-color:#FFCCFF;
+}
+
+.return-safe-card{
+background-color:#FFFFFF;
+}
+
+
+/* ****************************************** */
+
+ * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 表示領域の枠 */
+    .display_frame {
+      width: 100%;
+      height: 40px; /* 中に入る要素の縦幅に合わせる */
+      overflow: hidden; /* 表示領域外は隠す */
+    }
+
+    /* 中身をスクロールさせるための枠 */
+    .scroll_frame {
+      width: 100%;
+      height: 120px; /* outer_frameのheightより大きくする事で、スクロールバーを隠す */
+      overflow-x: scroll;
+    }
+
+    /* 中身の枠 */
+    .inner_frame {
+      width: 3000px; /* 中に入る要素の横幅に合わせる */
+    }
+
+    /* 中身の要素 */
+    .inner_frame div {
+      float: left;
+      width: 120px;
+      height: 40px;
+    }
+
+/* タブ切り替え ******************* */
+/*タブ切り替え全体のスタイル*/
+/* ボタンのスタイル */
+.button-tab {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #77FFFF;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration:none;
+}
+
+.button-tab-second {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #FFFF22;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration:none;
+}
+/* マウスオーバー時のカラー */
+.button-tab:hover {
+    background-color:#000044;
+} 
+
+/* マウスオーバー時のカラー */
+.button-tab-second:hover {
+    background-color:#BEFF15;
+} 
+
+/* リンク領域のスタイル */
+.button-tab-a {
+    display: block;
+    text-decoration:none;
+    padding: 7px 0;
+    text-align: center;
+}
+/* マウスホバー時のカラー*/
+.button-tab-a:hover {
+    color: #fff;
+}
+
+.tabs {
+margin-top: 50px;
+padding-bottom: 40px;
+background-color: #fff;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+width: 700px;
+margin: 0 auto;}
+/*タブのスタイル*/
+.tab_item {
+width: calc(100%/3);
+height: 50px;
+border-bottom: 3px solid #5ab4bd;
+background-color: #d9d9d9;
+line-height: 50px;
+font-size: 16px;
+color: #565656;
+display: block;
+float: left;
+text-align: center;
+font-weight: bold;
+transition: all 0.2s ease;
+}
+.tab_item:hover {
+opacity: 0.75;
+}
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+display: none;
+}
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+display: none;
+padding: 40px 40px 0;
+clear: both;
+overflow: hidden;
+}
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content,
+#design:checked ~ #design_content {
+display: block;
+}
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+background-color: #5ab4bd;
+color: #fff;
+}
+
+ /* ****************** */
+
+.box{
+ display: inline-block;
+}
+.after{
+ clear:both;
+}
+
+.cssgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 0.8em;
+  border: 1px solid #ddd;
+  padding: 0.8em;
+  margin: 0 0 2em;
+}
+
+.cssgrid > div {
+  background: #ddd;
+  overflow: auto;
+  min-width: 0;
+  padding: 1em;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 200px;
+  column-gap: 4px;
+  row-gap: 1em;
+}
+
+/* レンタルボタンの色 */
+.rentalBtn{
+  float: right;
+  /* 縦方向に10px、
+  * 横方向に30pxの余白を指定 */
+    padding: 10px 30px;
+    /* 背景色を濃い青色に指定 */
+    background-color: #248;
+    color: #000;
+}
+
+#onShowRental{
+  float: left;
+}
+
+/* おしゃれな表******************* */
+table.company {
+width: 100%;
+margin: 0 auto;
+border-collapse: separate;
+border-spacing: 0px 15px;
+font-size: 12px;
+}
+
+table.company th,
+table.company td {
+padding: 10px;
+}
+
+table.company th {
+background: #000066;
+vertical-align: middle;
+text-align: left;
+width: 80px;
+overflow: visible;
+position: relative;
+color: #fff;
+font-weight: normal;
+font-size: 15px;
+}
+
+table.company th:after {
+left: 100%;
+top: 50%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
+border-color: rgba(136, 183, 213, 0);
+border-left-color: #000066;
+border-width: 10px;
+margin-top: -10px;
+}
+/* firefox */
+@-moz-document url-prefix() {
+table.company th::after {
+float: right;
+padding: 0;
+left: 30px;
+top: 10px;
+content: " ";
+height: 0;
+width: 0;
+position: relative;
+pointer-events: none;
+border: 10px solid transparent;
+border-left: #000066 10px solid;
+margin-top: -10px;
+}
+}
+
+table.company td {
+background: #f8f8f8;
+width: 70%;
+padding-left: 20px;
+}
+
+/* *********************** */
+
+/* おしゃれな表2******************* */
+
+table.brwsr2 {
+margin: 0 auto;
+width: 100%;
+border: none;
+border-top: solid 1px #666;
+border-bottom: solid 1px #666;
+border-collapse: separate;
+border-spacing: 0 10px;
+background: #f5f5f5;
+}
+
+table.brwsr2 th {
+vertical-align: middle;
+height: 10%;
+width: 30%;
+border-right: solid 1px #666;
+margin: 0;
+text-align: center;
+color: #333;
+font-size: 16px;
+font-weight: bold;
+}
+
+table.brwsr2 td.data {
+padding: 0;
+margin: 0;
+height: 10%;
+width: 30%;
+border: none;
+color: #666;
+font-size: 12px;
+line-height: 12px;
+text-align: center;
+vertical-align: middle;
+white-space: nowrap;
+overflow: hidden;
+}
+
+table.brwsr2 td:fst-child {
+padding: 0 0 0 10px;
+vertical-align: middle;
+}
+
+table.brwsr2 td.bar {
+height: 1px;
+width: 100%;
+border-top: solid 1px #34495e;
+}
+
+/* ******************* */
+
+.help{
+  padding:20px;
+  text-align:center;
+}
+
+.image_help{
+  padding:10px;
+  text-align:center;
+}
