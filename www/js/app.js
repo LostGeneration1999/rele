@@ -1,5 +1,5 @@
-appKey ="559f0a87bdfcbe69e64dd6061cb1c4dfc7e6cf692c0718ce1c62943f2f35dd6c";
-clientKey = "756af48a935516e83f98290404b3e05bcf4eee08a2f5413727e9d427cbe533a6";
+appKey ="";
+clientKey = "";
 var ncmb = new NCMB(appKey, clientKey);
  
 //外部ファイルからの取得
